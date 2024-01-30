@@ -1,10 +1,12 @@
 
-from flask import Flask, request, redirect, render_template
+from flask import Flask, redirect, render_template, session, request
 import database as db
+import dotenv, os
 
-# Create a Flask app instance
+# Create a Flask app instance ------------
 app = Flask(__name__,
 static_url_path="/static")
+app.secret_key = os.getenv("session_key")
 
 # FIRST PAGE -----------------------------------------------
 @app.route('/')
@@ -55,6 +57,8 @@ def loginAttempt():
         if user is not None:
             if form["password"] == user["password"]:
                 user_url = f"/user/{user['id']}"
+                session["username"] = form["username"]
+                print(session["username"])
                 return redirect(user_url)
             else:
                 return "Wrong Password! Go back to retry or sign up."
@@ -71,6 +75,7 @@ def get_user(user_id):
         return render_template('user.html', user=user)
     else:
         return 'User not found', 404
+
 
 # Run the app
 if __name__ == '__main__':

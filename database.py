@@ -69,5 +69,5 @@ if __name__ == "__main__":
     
     # Testing python-dotenv
     load_dotenv()
-    key = os.getenv("session_key")
+    secret_key = os.getenv("session_key")
     
