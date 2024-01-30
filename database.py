@@ -1,5 +1,6 @@
 import sqlite3, os, time
- 
+from dotenv import load_dotenv
+
 db_path = 'db/users.db'
 
 def get_db_connection():
@@ -65,4 +66,8 @@ if __name__ == "__main__":
     print("One User ----")
     user = query_db("SELECT * FROM users WHERE username = ?", ("test", ), one=True)
     print(f"ID: {user['id']}, Email: {user['email']}, Username: {user['username']}, Password: {user['password']}")
+    
+    # Testing python-dotenv
+    load_dotenv()
+    key = os.getenv("session_key")
     
