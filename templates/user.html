@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Project</title>
+    <!-- <link rel="stylesheet" href="/static/css/{{ dark }}.css"> -->
+</head>
+<body>
+    <header>
+        <h1>Welcome {{ user.username }}!</h1>
+        <p>Your User ID is {{ user.id }} </p>
+        <p>Your email is {{ user.email }} </p>
+    </header>
+    <main>
+        <form method = "get" action = "/">
+            <button type="submit">Sign Out</button>  
+        </form>
+    </main>
+    <footer>
+    </footer>
+    <!-- <script src="static/js/script.js"></script> -->
+</body>
+</html>
